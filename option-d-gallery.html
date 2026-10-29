@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Portfolio Option D · Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a contact sheet of square thumbnails grouped by skill topic; each piece gets a museum-style label and links to its lesson. */
+:root{
+  --bg:#ffffff;
+  --fg:#1b1a1f;
+  --muted:#6e6a75;
+  --line:#e7e4ea;
+  --t1:#e0603a;  /* topic 1 */
+  --t2:#e9a92b;  /* topic 2 */
+  --t3:#1f9783;  /* topic 3 */
+  --t4:#4f63d8;  /* topic 4 */
+  --t5:#b8336a;  /* topic 5 */
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Work Sans","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--t4);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto}
+.mock{font-size:12px;color:var(--muted);padding-block:12px}
+.mock b{color:var(--fg)}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px 28px;padding-block:16px 18px}
+.brand{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em}
+nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-weight:500;font-size:15px}
+nav a{padding-bottom:2px;border-bottom:3px solid transparent}
+nav a:hover{border-color:var(--line)}
+nav a.on{border-color:var(--fg)}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+h1{font-size:clamp(2.4rem,6.5vw,5rem);font-weight:800}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700}
+h3{font-size:1.1rem;font-weight:700;letter-spacing:-.01em}
+p{margin:0;max-width:62ch}
+.ph{color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:14px}
+.intro{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:32px;align-items:end;padding-block:28px 32px;border-bottom:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-block:20px}
+.chips button,.chips a{font:inherit;font-size:14px;font-weight:600;border:0;cursor:pointer;padding:8px 14px;background:var(--line);color:var(--fg)}
+.chips .on{background:var(--c,var(--fg));color:#fff}
+.chips button:not(.on):hover{background:#dcd8e0}
+/* topic band */
+.band{padding-block:28px;border-top:1px solid var(--line)}
+.band-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;padding-bottom:16px}
+.band-head h2{display:flex;align-items:center;gap:12px}
+.band-head h2 i{width:18px;height:18px;background:var(--c);display:inline-block}
+.band-head a{font-weight:600;font-size:14px;border-bottom:2px solid var(--c)}
+/* contact sheet */
+.sheet{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:28px 20px}
+.piece{display:flex;flex-direction:column;gap:10px}
+.img{aspect-ratio:1;max-width:100%;background:color-mix(in srgb,var(--c) 18%,white);display:grid;place-items:center;text-align:center;padding:10px;font-size:12px;color:color-mix(in srgb,var(--c) 70%,black);position:relative;overflow:hidden;transition:transform .2s}
+.img::after{content:"";position:absolute;inset:auto 0 0 0;height:0;background:var(--c);transition:height .2s}
+.piece:hover .img::after{height:6px}
+.label{font-size:13px;line-height:1.35;border-left:2px solid var(--fg);padding-left:10px}
+.label b{display:block;font-size:14px;font-weight:600}
+.label span{color:var(--muted)}
+/* item page */
+.item{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;padding-top:24px}
+.big{aspect-ratio:8.5/11;max-width:100%;background:color-mix(in srgb,var(--c) 16%,white);display:grid;place-items:center;font-size:14px;color:color-mix(in srgb,var(--c) 70%,black)}
+.plaque{border-top:6px solid var(--c);padding-top:16px;display:flex;flex-direction:column;gap:18px;align-self:start;position:sticky;top:16px}
+.plaque dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px}
+.plaque dt{color:var(--muted)}
+.plaque dd{margin:0;font-weight:500}
+.btn{display:inline-block;font-weight:600;font-size:15px;padding:12px 18px;background:var(--fg);color:#fff}
+.btn:hover{background:var(--c,var(--t4))}
+.btn.ghost{background:none;color:var(--fg);box-shadow:inset 0 0 0 2px var(--fg)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 2px var(--c,var(--t4));color:var(--c,var(--t4));background:none}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+button.btn{border:0;font-family:inherit;cursor:pointer}
+.back{font-size:14px;font-weight:600;color:var(--muted)} .back:hover{color:var(--fg)}
+/* lesson page */
+.lesson{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px;padding-top:24px}
+.part{border-top:1px solid var(--line);padding-block:16px;display:grid;grid-template-columns:150px 1fr;gap:16px}
+.part>*{min-width:0}
+.part ul{margin:0;padding-left:18px}
+.rr{display:grid;grid-template-columns:200px 1fr;gap:20px;border-top:1px solid var(--line);padding-block:16px}
+.rr>*{min-width:0}
+.topics-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
+.topics-list a{background:var(--c);color:#fff;padding:18px 16px 22px;min-height:140px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;transition:filter .15s}
+.topics-list a:hover{filter:brightness(1.08)}
+.topics-list b{font-family:var(--display);font-size:1.25rem;font-weight:700;line-height:1.1}
+.topics-list span{font-size:13px;opacity:.9}
+@media (max-width:860px){
+  .intro,.item,.lesson,.part,.rr{grid-template-columns:1fr}
+  .plaque{position:static}
+  .topics-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sheet{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <div class="mock"><a href="index.html" style="color:inherit;font-weight:600">← All options</a> · <b>Option D · The Gallery</b> · organized by skill topic, visuals first · placeholder content</div>
+  <header>
+    <a class="brand" href="#home">[Grace's Full Name]</a>
+    <nav aria-label="Main">
+      <a href="#home" data-r="home">Work</a>
+      <a href="#lessons" data-r="lessons">Lessons</a>
+      <a href="#about" data-r="about">About</a>
+      <a href="#resume" data-r="resume">Résumé</a>
+    </nav>
+  </header>
+  <main id="page" tabindex="-1"></main>
+</div>
+
+<script>
+const TN=["[Money & Banking]","[Time & Measurement]","[Equations & Algebra]","[Social & Emotional Skills]","[Organization & Self-Advocacy]"];
+const T=TN.map((n,j)=>({i:j+1,n,c:`var(--t${j+1})`}));
+const K=["[Class 1]","[Class 2]","[Class 3]"];
+let topicFilter=0; // 0 = all
+let lastItem=1;
+
+const piece=(t,j)=>`<a class="piece" href="#item-${t.i}" style="--c:${t.c}">
+  <div class="img">[Worksheet / activity image]</div>
+  <div class="label"><b>[Material ${j} Title]</b><span>${K[(j+t.i)%3]} · [Type]</span></div></a>`;
+
+const V={
+home:()=>`<section class="intro">
+  <div class="stack"><h1>[Short headline about the materials she makes]</h1></div>
+  <div class="stack"><p class="ph">[Two sentences: special education teacher, the classes she taught, and that everything here was designed by her for her students.]</p>
+  <div class="btns"><a class="btn" href="#lessons">Browse lessons</a><a class="btn ghost" href="#resume">Résumé</a></div></div>
+</section>
+<div class="chips" role="group" aria-label="Filter by skill">
+  <button data-t="0" class="${topicFilter===0?"on":""}">All work</button>
+  ${T.map(t=>`<button data-t="${t.i}" class="${topicFilter===t.i?"on":""}" style="--c:${t.c}">${t.n}</button>`).join("")}
+</div>
+${T.filter(t=>!topicFilter||topicFilter===t.i).map(t=>`<section class="band" style="--c:${t.c}">
+  <div class="band-head"><h2><i></i>${t.n}</h2><a href="#topic-${t.i}">See all [#] pieces →</a></div>
+  <div class="sheet">${[1,2,3,4,5,6].map(j=>piece(t,j)).join("")}</div>
+</section>`).join("")}`,
+
+lessons:()=>`<section class="stack" style="padding-block:28px 24px"><h1>Lessons</h1><p class="ph">[One sentence: every piece of work connects back to a full lesson plan.]</p></section>
+<div class="topics-list">${T.map(t=>`<a href="#topic-${t.i}" style="--c:${t.c}"><b>${t.n}</b><span>[#] lessons · [#] materials</span></a>`).join("")}</div>
+<section style="padding-top:32px">${Array.from({length:8},(_,i)=>{const t=T[i%5];return `<div class="rr"><div style="display:flex;align-items:center;gap:10px"><i style="width:12px;height:12px;background:${t.c};display:inline-block"></i><span class="ph" style="font-size:14px">${t.n}</span></div>
+<a href="#lesson" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><h3>[Lesson ${i+1} Title]</h3><span class="ph" style="font-size:14px">${K[i%3]} · [Date]</span></a></div>`}).join("")}</section>`,
+
+about:()=>`<section class="intro" style="border:0">
+  <div class="stack"><h1>[Heading for her teaching philosophy]</h1></div>
+  <div></div></section>
+<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
+  ${["How I teach","How I design materials","Working with families and teams"].map((h,i)=>`<div class="stack" style="border-top:6px solid var(--t${i+2});padding-top:14px"><h3>${h}</h3><p class="ph">[Short paragraph.]</p></div>`).join("")}
+</section>`,
+
+resume:()=>`<section class="stack" style="padding-block:28px 12px"><h1>Résumé</h1><p class="ph">[City, State] · [email] · [link]</p>
+<div class="btns"><a class="btn" href="#resume">Download PDF</a></div></section>
+${["Education","Experience","Certifications","Skills"].map(s=>`<div class="rr"><h3>${s}</h3><div><b style="font-weight:600">[Role / Degree]</b> <span class="ph">· [Organization] · [Dates]</span><p class="ph" style="font-size:15px">[Detail line]</p></div></div>`).join("")}`,
+
+lesson:()=>`<a class="back" href="#item-${lastItem}">← Back to the piece</a>
+<section class="lesson" style="--c:var(--t${lastItem})">
+  <div class="stack">
+    <div style="font-weight:600;color:var(--c)">${T[lastItem-1].n} · [Class Name]</div>
+    <h1 style="font-size:clamp(2rem,5vw,3.4rem)">[Lesson Title]</h1>
+    <p class="ph" style="font-size:19px">[Essential question.]</p>
+    <div>${[["Standards","[Standard code: text]"],["Objectives","<ul><li>[Objective 1]</li><li>[Objective 2]</li></ul>"],["Differentiation","<ul><li>[Support 1]</li><li>[Support 2]</li></ul>"],["Assessment","[Checks for understanding]"],["Sequence","<ul><li>[Warm-up]</li><li>[Instruction]</li><li>[Practice]</li><li>[Closure]</li></ul>"]].map(([h,b])=>`<div class="part"><h3>${h}</h3><div class="ph">${b}</div></div>`).join("")}</div>
+  </div>
+  <aside class="stack">
+    <h3>Made for this lesson</h3>
+    <div class="sheet" style="grid-template-columns:repeat(2,minmax(0,1fr))">${[1,2].map(j=>piece(T[lastItem-1],j)).join("")}</div>
+    <div class="btns"><a class="btn" href="#lesson">Full plan (PDF)</a><a class="btn ghost" href="#lesson">Slides</a></div>
+  </aside>
+</section>`
+};
+
+function topicView(i){
+  const t=T[i-1];
+  return `<a class="back" href="#home">← All work</a>
+  <section class="band" style="--c:${t.c};border:0">
+    <div class="band-head"><h2 style="font-size:clamp(2rem,5vw,3.4rem)"><i style="width:28px;height:28px"></i>${t.n}</h2></div>
+    <p class="ph" style="padding-bottom:24px">[Short description of this skill area and why it matters for her students.]</p>
+    <div class="sheet">${Array.from({length:12},(_,j)=>piece(t,j+1)).join("")}</div>
+  </section>`;
+}
+function itemView(i){
+  const t=T[i-1]; lastItem=i;
+  return `<a class="back" href="#home">← All work</a>
+  <section class="item" style="--c:${t.c}">
+    <div class="big" id="mprev">[Full-page preview of the worksheet]</div>
+    <div class="plaque">
+      <h2>[Material Title]</h2>
+      <p class="ph">[Two or three sentences: what students do with it, and how she designed it for their needs.]</p>
+      <p class="ph">[How she designed it: visuals, supports, and versions for different learners.]</p>
+      <dl><dt>Skill</dt><dd>${t.n}</dd><dt>Class</dt><dd>[Class Name]</dd><dt>Type</dt><dd>[Worksheet / game / notes]</dd><dt>Made with</dt><dd>[Canva]</dd></dl>
+      <div class="btns"><a class="btn" href="#lesson">See the lesson plan</a><button class="btn ghost" data-key>Show answer key</button></div>
+    </div>
+  </section>
+  <section class="band" style="--c:${t.c};margin-top:40px">
+    <div class="band-head"><h3>More from ${t.n}</h3><a href="#topic-${i}">See all →</a></div>
+    <div class="sheet">${[1,2,3,4].map(j=>piece(t,j)).join("")}</div>
+  </section>`;
+}
+
+function render(){
+  const r=location.hash.slice(1)||"home";
+  const page=document.getElementById("page");
+  let m;
+  if((m=r.match(/^topic-([1-5])$/))) page.innerHTML=topicView(+m[1]);
+  else if((m=r.match(/^item-([1-5])$/))) page.innerHTML=itemView(+m[1]);
+  else page.innerHTML=(V[r]||V.home)();
+  const navKey=r==="lesson"?"lessons":(m?"home":r);
+  document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.r===navKey));
+  page.querySelectorAll("[data-key]").forEach(b=>b.addEventListener("click",()=>{const p=page.querySelector("#mprev");const k=!p.dataset.k;p.dataset.k=k?"1":"";p.textContent=k?"[Answer key preview]":"[Full-page preview of the worksheet]";b.textContent=k?"Show student version":"Show answer key"}));
+  page.querySelectorAll(".chips button").forEach(b=>b.addEventListener("click",()=>{topicFilter=+b.dataset.t;const y=scrollY;render();scrollTo(0,y)}));
+}
+addEventListener("hashchange",()=>{render();scrollTo(0,0)});render();
+</script>
+
+</html>

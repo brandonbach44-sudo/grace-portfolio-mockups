@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Layout Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap">
+<style>
+:root{--bg:#ffffff;--fg:#141414;--muted:#6b6d76;--line:#e3e4e8;--a:#d9a62e;--b:#1c3fd6;--c:#4e7d5b;--d:#e0603a;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:48px 64px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:800;text-wrap:balance}
+p{margin:0;max-width:60ch;color:var(--muted);font-size:17px}
+ol{list-style:none;margin:0;padding:0;border-top:2px solid var(--fg)}
+li a{display:grid;grid-template-columns:56px 1fr auto;gap:16px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.letter{width:44px;height:44px;display:grid;place-items:center;font-weight:800;font-size:20px;color:#fff;background:var(--k)}
+.name{font-weight:800;font-size:clamp(1.3rem,3vw,1.7rem);letter-spacing:-.02em;display:block}
+.desc{color:var(--muted);font-size:15px}
+.arrow{font-size:22px;transition:transform .15s}
+li a:hover .name{text-decoration:underline;text-underline-offset:4px}
+li a:hover .arrow{transform:translateX(5px)}
+a:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+.ask{border-left:4px solid var(--fg);padding-left:16px;display:flex;flex-direction:column;gap:6px}
+.ask b{font-size:17px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <h1>Portfolio website: pick a layout</h1>
+    <p>Four sample layouts for your teaching portfolio. Each one is clickable, so open it and click around. The text is placeholder for now (like "[Lesson Title]"); your real work goes in once you choose.</p>
+  </div>
+  <ol>
+    <li><a href="option-a-binder.html" style="--k:var(--a)"><span class="letter">A</span><span><span class="name">The Binder</span><span class="desc">Organized by class, like tabs in a binder</span></span><span class="arrow">→</span></a></li>
+    <li><a href="option-b-index.html" style="--k:var(--b)"><span class="letter">B</span><span><span class="name">The Index</span><span class="desc">Organized by type of work: lesson plans, materials, slides, reflections</span></span><span class="arrow">→</span></a></li>
+    <li><a href="option-c-semester.html" style="--k:var(--c)"><span class="letter">C</span><span><span class="name">The Semester</span><span class="desc">Organized week by week, like a teacher planner</span></span><span class="arrow">→</span></a></li>
+    <li><a href="option-d-gallery.html" style="--k:var(--d)"><span class="letter">D</span><span><span class="name">The Gallery</span><span class="desc">Worksheets and activities up front, grouped by skill</span></span><span class="arrow">→</span></a></li>
+  </ol>
+  <div class="ask">
+    <b>When you've looked through them:</b>
+    <p>Which way of organizing your work do you like best, and which look do you like best? They can come from different options.</p>
+  </div>
+</div>
+</body>
+</html>
