@@ -122,7 +122,7 @@ h3{font-weight:600!important}
 <div class="wrap">
   <div class="mock"><a href="index.html" style="color:inherit;font-weight:600">← All options</a> · OPTION B — INDEX · organized by type of work · placeholder content</div>
   <header>
-    <a class="brand" href="#home">[Grace's Full Name]</a>
+    <a class="brand" href="#home">[First Last]</a>
     <nav aria-label="Main">
       <a href="#plans" data-r="plans">Lesson Plans</a>
       <a href="#materials" data-r="materials">Materials</a>
@@ -133,7 +133,7 @@ h3{font-weight:600!important}
     </nav>
   </header>
   <main id="page" tabindex="-1"></main>
-  <footer class="mono"><span>[Grace's Full Name] · Special Education</span><span>[email address]</span></footer>
+  <footer class="mono"><span>[First Last] · Special Education</span><span>[email address]</span></footer>
 </div>
 
 <script>
@@ -168,39 +168,39 @@ home:()=>`<section class="grid">
 </section>
 <section class="grid">
   ${K.map((k,i)=>`<div class="c4" style="border-top:2px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px">
-     <span class="tag k${i+1}" style="align-self:start">${k}</span><h2>[Class ${i+1} Name]</h2><p class="ph" style="font-size:14px">[One-line description of the class.]</p></div>`).join("")}
+     <span class="tag k${i+1}" style="align-self:start">${k}</span><h2>[Subheader]</h2><p class="ph" style="font-size:14px">[One-line description of the class.]</p></div>`).join("")}
 </section>
 <section><div class="mono" style="padding-bottom:10px">BROWSE BY SKILL</div>
 <div class="idx">${TOP.map((t,i)=>`<a href="#plans" data-skill="${i}"><span class="mono">S${i+1}</span><span><span class="t" style="font-size:clamp(1.2rem,2.6vw,1.8rem)">${t}</span><br><span class="count">[#] plans · [#] materials</span></span><span class="arrow">→</span></a>`).join("")}</div></section>`,
 
-plans:()=>`<section><div class="grid"><div class="c8"><h1>Lesson Plans</h1></div><div class="c4" style="align-self:end"><p class="ph">[One sentence on her lesson plan format, e.g. framework used.]</p></div></div></section>
+plans:()=>`<section><div class="grid"><div class="c8"><h1>[Header]</h1></div><div class="c4" style="align-self:end"><p class="ph">[One sentence on her lesson plan format, e.g. framework used.]</p></div></div></section>
 ${filterBar("plans",`<span class="lab" style="margin-left:auto">Sort</span><button class="on">Date</button><button>Topic</button>`)}
 <div class="tbl-wrap"><table><thead><tr><th>No.</th><th>Lesson</th><th>Class</th><th>Skill</th><th>Date</th></tr></thead><tbody>
 ${rowsFor(15,filt.plans,filt.plansS).map(r=>`<tr class="row" data-go="lesson"><td class="num">${pad(r.i)}</td><td class="title">[Lesson ${r.i} Title]</td><td><span class="tag k${r.k+1}">${K[r.k]}</span></td><td class="ph">${TOP[r.s]}</td><td class="mono">[MM/DD]</td></tr>`).join("")}
 </tbody></table></div>`,
 
-materials:()=>`<section><div class="grid"><div class="c8"><h1>Materials</h1></div><div class="c4" style="align-self:end"><p class="ph">[Worksheets, games, notes and activities she designed.]</p></div></div></section>
+materials:()=>`<section><div class="grid"><div class="c8"><h1>[Header]</h1></div><div class="c4" style="align-self:end"><p class="ph">[Worksheets, games, notes and activities she designed.]</p></div></div></section>
 ${filterBar("materials",`<span class="lab" style="margin-left:auto">Type</span><button class="on">All</button><button>Worksheets</button><button>Games</button><button>Notes</button>`)}
 <div class="mat" style="padding-top:28px">${rowsFor(15,filt.materials,filt.materialsS).map(r=>`<a href="#material"><div class="sq">[Material image]</div><span class="tt">[Material ${r.i} Name]</span><span class="mono">${K[r.k]} · ${TOP[r.s]}</span></a>`).join("")}</div>`,
 
-slides:()=>`<section><h1>Slides</h1></section>${filterBar("slides")}
+slides:()=>`<section><h1>[Header]</h1></section>${filterBar("slides")}
 <div class="tbl-wrap"><table><thead><tr><th>No.</th><th>Deck</th><th>Class</th><th>Week</th><th></th></tr></thead><tbody>
 ${rowsFor(15,filt.slides,filt.slidesS).map(r=>`<tr class="row" data-go="deck"><td class="num">${pad(r.i)}</td><td class="title">[Slide Deck ${r.i} Title]</td><td><span class="tag k${r.k+1}">${K[r.k]}</span></td><td class="mono">WK [#]</td><td class="mono">VIEW →</td></tr>`).join("")}
 </tbody></table></div>`,
 
-reflections:()=>`<section class="grid"><div class="c8"><h1>Reflections</h1></div><div class="c4" style="align-self:end"><p class="ph">[Short intro to her weekly student teaching journal.]</p></div></section>
+reflections:()=>`<section class="grid"><div class="c8"><h1>[Header]</h1></div><div class="c4" style="align-self:end"><p class="ph">[Short intro to her weekly student teaching journal.]</p></div></section>
 <section style="padding-top:24px">${Array.from({length:6},(_,i)=>`<div class="rr"><div><div class="mono">WEEK ${pad(i+1)}</div><div class="mono">[Date range]</div></div>
-<div style="display:flex;flex-direction:column;gap:8px"><h2>[Reflection ${i+1} Heading]</h2><p class="ph">[Two or three lines from the de-identified journal entry for this week…]</p><a class="mono" href="#reflections" style="color:var(--accent)">READ ENTRY →</a></div></div>`).join("")}</section>`,
+<div style="display:flex;flex-direction:column;gap:8px"><h2>[Subheader]</h2><p class="ph">[Two or three lines from the de-identified journal entry for this week…]</p><a class="mono" href="#reflections" style="color:var(--accent)">READ ENTRY →</a></div></div>`).join("")}</section>`,
 
 about:()=>`<section class="grid">
   <div class="c4"><div class="meta"><dl><div><dt>Program</dt><dd>[Degree · University]</dd></div><div><dt>Placement</dt><dd>[School · Semester]</dd></div><div><dt>Focus</dt><dd>[Certification area]</dd></div><div><dt>Classes taught</dt><dd>[Class 1] · [Class 2] · [Class 3]</dd></div></dl></div></div>
   <div class="c8" style="display:flex;flex-direction:column;gap:20px">
-    <div class="mono">ABOUT</div><h1>[Heading]</h1>
+    <div class="mono">ABOUT</div><h1>[Header]</h1>
     <p class="ph">[Paragraph 1 of teaching philosophy.]</p><p class="ph">[Paragraph 2.]</p><p class="ph">[Paragraph 3.]</p>
     <div class="grid" style="padding-top:12px">${["Approach","Strengths","Goals"].map(h=>`<div class="c4" style="border-top:2px solid var(--line);padding-top:10px"><div class="mono">${h.toUpperCase()}</div><p class="ph" style="font-size:14px">[Short point]</p></div>`).join("")}</div>
   </div></section>`,
 
-resume:()=>`<section class="grid"><div class="c8"><h1>Résumé</h1><p class="ph" style="padding-top:12px">[City, State] · [email] · [link]</p></div>
+resume:()=>`<section class="grid"><div class="c8"><h1>[Header]</h1><p class="ph" style="padding-top:12px">[City, State] · [email] · [link]</p></div>
 <div class="c4" style="align-self:end"><a class="btn" href="#resume">Download PDF ↓</a></div></section>
 <section>${["Education","Experience","Certifications","Skills"].map(s=>`<div class="rr"><div class="mono">${s.toUpperCase()}</div><div style="display:flex;flex-direction:column;gap:6px"><b>[Role / Degree]</b><span class="ph">[Organization] · [Dates]</span><p class="ph" style="font-size:15px">[Detail line]</p></div></div>`).join("")}</section>`,
 
@@ -208,18 +208,18 @@ material:()=>`<section><a class="back" href="#materials">← ALL MATERIALS</a></
 <section class="grid" style="padding-top:20px">
  <div class="c6"><div class="sq" id="mprev" style="aspect-ratio:8.5/11;font-size:13px">[Full-page preview of the worksheet]</div></div>
  <div class="c6" style="display:flex;flex-direction:column;gap:20px">
-  <div class="mono">MATERIAL · [WORKSHEET]</div><h1>[Material Title]</h1>
+  <div class="mono">MATERIAL · [WORKSHEET]</div><h1>[Header]</h1>
   <p class="ph" style="font-size:18px">[One or two sentences on what students do with it.]</p>
   <div class="meta"><dl><div><dt>Class</dt><dd>[Class Name]</dd></div><div><dt>Skill</dt><dd>${TOP[0]}</dd></div><div><dt>Used in</dt><dd><a href="#lesson" style="color:var(--accent)">[Lesson Title] →</a></dd></div><div><dt>Made with</dt><dd>[Canva]</dd></div></dl></div>
   <div class="btns"><button class="btn" data-key>Show answer key</button><a class="btn alt" href="#material">Download PDF ↓</a></div>
-  ${[["How I designed it","[Design choices: visuals, chunking, supports.]"],["Differentiation","[Versions or supports for different learners.]"]].map(([h,b])=>`<div class="block" style="grid-template-columns:140px 1fr"><h3>${h}</h3><div class="ph">${b}</div></div>`).join("")}
+  ${[["How I designed it","[Design choices: visuals, chunking, supports.]"],["Differentiation","[Versions or supports for different learners.]"]].map(([h,b])=>`<div class="block" style="grid-template-columns:140px 1fr"><h3>[Subheader]</h3><div class="ph">${b}</div></div>`).join("")}
  </div></section>
 <section><div class="mono" style="border-top:2px solid var(--line);padding-top:14px;margin-bottom:20px">MORE FROM THIS LESSON</div>
 <div class="mat">${[1,2,3,4].map(i=>`<a href="#material"><div class="sq">[Material image]</div><span class="tt">[Material ${i}]</span></a>`).join("")}</div></section>`,
 
 deck:()=>`<section><a class="back" href="#slides">← ALL SLIDES</a></section>
 <section style="padding-top:20px;display:flex;flex-direction:column;gap:20px">
- <div class="grid"><div class="c8"><div class="mono">SLIDE DECK · [CLASS NAME] · WEEK [#]</div><h1 style="padding-top:8px">[Slide Deck Title]</h1></div>
+ <div class="grid"><div class="c8"><div class="mono">SLIDE DECK · [CLASS NAME] · WEEK [#]</div><h1 style="padding-top:8px">[Header]</h1></div>
  <div class="c4" style="align-self:end"><div class="btns"><a class="btn" href="#deck">Open in Canva ↗</a><a class="btn alt" href="#lesson">Lesson plan</a></div></div></div>
  <div class="sq" id="slide" style="aspect-ratio:16/9;font-size:14px">[Slide 1 of 12]</div>
  <div class="filters" style="justify-content:space-between"><button data-sl="-1">← Previous</button><span class="mono" id="slnum">1 / 12</span><button data-sl="1">Next →</button></div>
@@ -234,11 +234,11 @@ lesson:()=>`<section><a class="back" href="#plans">← ALL LESSON PLANS</a></sec
     <div><dt>Skill</dt><dd>${TOP[0]}</dd></div></dl>
     <div class="btns" style="padding-top:20px"><a class="btn" href="#lesson">PDF ↓</a><a class="btn alt" href="#deck">Slides</a></div></div></aside>
   <div class="c9" style="display:flex;flex-direction:column;gap:20px">
-    <h1>[Lesson Title]</h1>
+    <h1>[Header]</h1>
     <p class="ph" style="font-size:19px">[Essential question for the lesson.]</p>
     <div>
       ${[["Standards","[Standard code: text]"],["Objectives","<ul><li>[Objective 1]</li><li>[Objective 2]</li><li>[Objective 3]</li></ul>"],["Differentiation","<ul><li>[Group / accommodation 1]</li><li>[Group / accommodation 2]</li></ul>"],["Assessment","[Formative and summative checks]"],["Sequence","<ul><li>[Warm-up]</li><li>[Instruction]</li><li>[Practice]</li><li>[Closure]</li></ul>"]]
-       .map(([h,b])=>`<div class="block"><h3>${h}</h3><div class="ph">${b}</div></div>`).join("")}
+       .map(([h,b])=>`<div class="block"><h3>[Subheader]</h3><div class="ph">${b}</div></div>`).join("")}
     </div>
     <div style="border-top:2px solid var(--line);padding-top:14px" class="mono">MATERIALS USED</div>
     <div class="mat">${[1,2,3].map(i=>`<a href="#material"><div class="sq">[Material image]</div><span class="tt">[Material ${i}]</span></a>`).join("")}</div>
