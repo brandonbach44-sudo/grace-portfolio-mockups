@@ -140,7 +140,7 @@ const piece=(t,j)=>`<a class="piece" href="#item-${t.i}" style="--c:${t.c}">
 const V={
 home:()=>`<section class="intro">
   <div class="stack"><h1>[Header]</h1></div>
-  <div class="stack"><p class="ph">[Two sentences: special education teacher, the classes she taught, and that everything here was designed by her for her students.]</p>
+  <div class="stack"><p class="ph">[Text]</p>
   <div class="btns"><a class="btn" href="#lessons">Browse lessons</a><a class="btn ghost" href="#resume">Résumé</a></div></div>
 </section>
 <div class="chips" role="group" aria-label="Filter by skill">
@@ -148,36 +148,36 @@ home:()=>`<section class="intro">
   ${T.map(t=>`<button data-t="${t.i}" class="${topicFilter===t.i?"on":""}" style="--c:${t.c}">${t.n}</button>`).join("")}
 </div>
 ${T.filter(t=>!topicFilter||topicFilter===t.i).map(t=>`<section class="band" style="--c:${t.c}">
-  <div class="band-head"><h2>[Subheader]</h2><a href="#topic-${t.i}">See all [#] pieces →</a></div>
+  <div class="band-head"><h2><i></i>${t.n}</h2><a href="#topic-${t.i}">See all [#] pieces →</a></div>
   <div class="sheet">${[1,2,3,4,5,6].map(j=>piece(t,j)).join("")}</div>
 </section>`).join("")}`,
 
-lessons:()=>`<section class="stack" style="padding-block:28px 24px"><h1>[Header]</h1><p class="ph">[One sentence: every piece of work connects back to a full lesson plan.]</p></section>
+lessons:()=>`<section class="stack" style="padding-block:28px 24px"><h1>Lessons</h1><p class="ph">[Text]</p></section>
 <div class="topics-list">${T.map(t=>`<a href="#topic-${t.i}" style="--c:${t.c}"><b>${t.n}</b><span>[#] lessons · [#] materials</span></a>`).join("")}</div>
 <section style="padding-top:32px">${Array.from({length:8},(_,i)=>{const t=T[i%5];return `<div class="rr"><div style="display:flex;align-items:center;gap:10px"><i style="width:12px;height:12px;background:${t.c};display:inline-block"></i><span class="ph" style="font-size:14px">${t.n}</span></div>
-<a href="#lesson" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><h3>[Subheader]</h3><span class="ph" style="font-size:14px">${K[i%3]} · [Date]</span></a></div>`}).join("")}</section>`,
+<a href="#lesson" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><h3>[Lesson ${i+1} Title]</h3><span class="ph" style="font-size:14px">${K[i%3]} · [Date]</span></a></div>`}).join("")}</section>`,
 
 about:()=>`<section class="intro" style="border:0">
   <div class="stack"><h1>[Header]</h1></div>
   <div></div></section>
 <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
-  ${["How I teach","How I design materials","Working with families and teams"].map((h,i)=>`<div class="stack" style="border-top:6px solid var(--t${i+2});padding-top:14px"><h3>[Subheader]</h3><p class="ph">[Short paragraph.]</p></div>`).join("")}
+  ${["How I teach","How I design materials","Working with families and teams"].map((h,i)=>`<div class="stack" style="border-top:6px solid var(--t${i+2});padding-top:14px"><h3>${h}</h3><p class="ph">[Text]</p></div>`).join("")}
 </section>`,
 
-resume:()=>`<section class="stack" style="padding-block:28px 12px"><h1>[Header]</h1><p class="ph">[City, State] · [email] · [link]</p>
+resume:()=>`<section class="stack" style="padding-block:28px 12px"><h1>Résumé</h1><p class="ph">[City, State] · [email] · [link]</p>
 <div class="btns"><a class="btn" href="#resume">Download PDF</a></div></section>
-${["Education","Experience","Certifications","Skills"].map(s=>`<div class="rr"><h3>[Subheader]</h3><div><b style="font-weight:600">[Role / Degree]</b> <span class="ph">· [Organization] · [Dates]</span><p class="ph" style="font-size:15px">[Detail line]</p></div></div>`).join("")}`,
+${["Education","Experience","Certifications","Skills"].map(s=>`<div class="rr"><h3>${s}</h3><div><b style="font-weight:600">[Role / Degree]</b> <span class="ph">· [Organization] · [Dates]</span><p class="ph" style="font-size:15px">[Text]</p></div></div>`).join("")}`,
 
 lesson:()=>`<a class="back" href="#item-${lastItem}">← Back to the piece</a>
 <section class="lesson" style="--c:var(--t${lastItem})">
   <div class="stack">
     <div style="font-weight:600;color:var(--c)">${T[lastItem-1].n} · [Class Name]</div>
-    <h1 style="font-size:clamp(2rem,5vw,3.4rem)">[Header]</h1>
-    <p class="ph" style="font-size:19px">[Essential question.]</p>
-    <div>${[["Standards","[Standard code: text]"],["Objectives","<ul><li>[Objective 1]</li><li>[Objective 2]</li></ul>"],["Differentiation","<ul><li>[Support 1]</li><li>[Support 2]</li></ul>"],["Assessment","[Checks for understanding]"],["Sequence","<ul><li>[Warm-up]</li><li>[Instruction]</li><li>[Practice]</li><li>[Closure]</li></ul>"]].map(([h,b])=>`<div class="part"><h3>[Subheader]</h3><div class="ph">${b}</div></div>`).join("")}</div>
+    <h1 style="font-size:clamp(2rem,5vw,3.4rem)">[Lesson Title]</h1>
+    <p class="ph" style="font-size:19px">[Text]</p>
+    <div>${[["Standards","[Standard code: text]"],["Objectives","<ul><li>[Objective 1]</li><li>[Objective 2]</li></ul>"],["Differentiation","<ul><li>[Support 1]</li><li>[Support 2]</li></ul>"],["Assessment","[Checks for understanding]"],["Sequence","<ul><li>[Warm-up]</li><li>[Instruction]</li><li>[Practice]</li><li>[Closure]</li></ul>"]].map(([h,b])=>`<div class="part"><h3>${h}</h3><div class="ph">${b}</div></div>`).join("")}</div>
   </div>
   <aside class="stack">
-    <h3>[Subheader]</h3>
+    <h3>Made for this lesson</h3>
     <div class="sheet" style="grid-template-columns:repeat(2,minmax(0,1fr))">${[1,2].map(j=>piece(T[lastItem-1],j)).join("")}</div>
     <div class="btns"><a class="btn" href="#lesson">Full plan (PDF)</a><a class="btn ghost" href="#lesson">Slides</a></div>
   </aside>
@@ -188,8 +188,8 @@ function topicView(i){
   const t=T[i-1];
   return `<a class="back" href="#home">← All work</a>
   <section class="band" style="--c:${t.c};border:0">
-    <div class="band-head"><h2 style="font-size:clamp(2rem,5vw,3.4rem)">[Subheader]</h2></div>
-    <p class="ph" style="padding-bottom:24px">[Short description of this skill area and why it matters for her students.]</p>
+    <div class="band-head"><h2 style="font-size:clamp(2rem,5vw,3.4rem)"><i style="width:28px;height:28px"></i>${t.n}</h2></div>
+    <p class="ph" style="padding-bottom:24px">[Text]</p>
     <div class="sheet">${Array.from({length:12},(_,j)=>piece(t,j+1)).join("")}</div>
   </section>`;
 }
@@ -199,15 +199,15 @@ function itemView(i){
   <section class="item" style="--c:${t.c}">
     <div class="big" id="mprev">[Full-page preview of the worksheet]</div>
     <div class="plaque">
-      <h2>[Subheader]</h2>
-      <p class="ph">[Two or three sentences: what students do with it, and how she designed it for their needs.]</p>
-      <p class="ph">[How she designed it: visuals, supports, and versions for different learners.]</p>
+      <h2>[Material Title]</h2>
+      <p class="ph">[Text]</p>
+      <p class="ph">[Text]</p>
       <dl><dt>Skill</dt><dd>${t.n}</dd><dt>Class</dt><dd>[Class Name]</dd><dt>Type</dt><dd>[Worksheet / game / notes]</dd><dt>Made with</dt><dd>[Canva]</dd></dl>
       <div class="btns"><a class="btn" href="#lesson">See the lesson plan</a><button class="btn ghost" data-key>Show answer key</button></div>
     </div>
   </section>
   <section class="band" style="--c:${t.c};margin-top:40px">
-    <div class="band-head"><h3>[Subheader]</h3><a href="#topic-${i}">See all →</a></div>
+    <div class="band-head"><h3>More from ${t.n}</h3><a href="#topic-${i}">See all →</a></div>
     <div class="sheet">${[1,2,3,4].map(j=>piece(t,j)).join("")}</div>
   </section>`;
 }

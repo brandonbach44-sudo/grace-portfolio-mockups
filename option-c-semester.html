@@ -161,16 +161,16 @@ home:()=>`<section class="hero">
   <div class="stack">
     <div class="label">Student teaching portfolio</div>
     <h1>[Header]</h1>
-    <p class="ph">[Two sentences: where she taught, which classes, and what this planner shows.]</p>
+    <p class="ph">[Text]</p>
   </div>
   <div class="stack">
-    <div class="note">[note: "click any week to open it →"]</div>
+    <div class="note">[Note]</div>
     <div class="stats"><div><b>15</b><span>weeks</span></div><div><b>3</b><span>classes</span></div><div><b>[#]</b><span>lesson plans</span></div></div>
   </div>
 </section>
 <section class="sec">
   <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center">
-    <h2>[Subheader]</h2>
+    <h2>The semester planner</h2>
     <div class="legend" aria-label="Show classes">${K.map((k,i)=>`<button data-k="${i}" class="${on[i]?"":"off"}" style="--c:${k.c}" aria-pressed="${on[i]}"><i></i>${k.n}</button>`).join("")}</div>
   </div>
   <div class="legend" aria-label="Highlight a skill" style="padding-top:12px;align-items:center"><span class="label" style="margin-right:4px">Highlight a skill</span>${TOP.map((t,i)=>`<button data-s="${i}" class="${hi===i?"on":""}" aria-pressed="${hi===i}">${t}</button>`).join("")}${hi>=0?`<button data-s="-1">Clear</button>`:""}</div>
@@ -181,13 +181,13 @@ about:()=>`<section class="sec" style="display:grid;grid-template-columns:minmax
   <div class="stack">
     <div class="label">About</div>
     <h1>[Header]</h1>
-    <p class="ph">[Paragraph 1 of her teaching philosophy.]</p>
-    <p class="ph">[Paragraph 2: planning, routines, differentiation.]</p>
-    <p class="ph">[Paragraph 3: families, IEP teams, collaboration.]</p>
+    <p class="ph">[Paragraph]</p>
+    <p class="ph">[Paragraph]</p>
+    <p class="ph">[Paragraph]</p>
   </div>
   <div class="stack" style="padding-top:40px">
-    <div class="note">[note: one thing she learned this semester]</div>
-    ${K.map(k=>`<div style="border-left:4px solid ${k.c};padding-left:12px"><b style="font-weight:600">${k.n} Name</b><p class="ph" style="font-size:13px">[One-line description]</p></div>`).join("")}
+    <div class="note">[Note]</div>
+    ${K.map(k=>`<div style="border-left:4px solid ${k.c};padding-left:12px"><b style="font-weight:600">${k.n} Name</b><p class="ph" style="font-size:13px">[Text]</p></div>`).join("")}
   </div>
 </section>`,
 
@@ -195,22 +195,22 @@ resume:()=>`<section class="sec stack" style="gap:22px">
   <div class="label">Résumé</div><h1>[First Last]</h1>
   <p class="ph">[City, State] · [email] · [link]</p>
   <div class="btns"><a class="btn" href="#resume">Download PDF</a></div>
-  ${["Education","Experience","Certifications","Skills"].map(s=>`<div class="rr"><h3>[Subheader]</h3><div><b style="font-weight:500">[Role / Degree]</b> <span class="ph">· [Organization] · [Dates]</span><p class="ph" style="font-size:14px">[Detail line]</p></div></div>`).join("")}
+  ${["Education","Experience","Certifications","Skills"].map(s=>`<div class="rr"><h3>${s}</h3><div><b style="font-weight:500">[Role / Degree]</b> <span class="ph">· [Organization] · [Dates]</span><p class="ph" style="font-size:14px">[Text]</p></div></div>`).join("")}
 </section>`,
 
 material:()=>`<section class="sec stack" style="gap:18px">
   <a href="#week-${lastWeek}" style="text-decoration:none;color:var(--muted)">← Back to Week ${lastWeek}</a>
   <div class="sheet">
-    <div class="stack" style="gap:10px"><div class="label" style="color:var(--k1)">[Class Name] · Week [#] · Material</div><h1>[Header]</h1>
+    <div class="stack" style="gap:10px"><div class="label" style="color:var(--k1)">[Class Name] · Week [#] · Material</div><h1>[Material Title]</h1>
     <div class="facts"><span>[Worksheet]</span><span>${TOP[0]}</span><span>[Made with Canva]</span></div></div>
     <div class="mgrid">
       <div class="stack"><div class="bigprev" id="mprev">[Full-page preview of the worksheet]</div>
         <div class="btns"><button class="btn" data-key>Show answer key</button><a class="btn" href="#material">Download PDF</a></div></div>
       <div class="stack">
-        <div class="stack" style="gap:6px;border-top:1px solid var(--line);padding-top:12px"><h3>[Subheader]</h3><p class="ph">[Short description of the activity.]</p></div>
-        <div class="stack" style="gap:6px;border-top:1px solid var(--line);padding-top:12px"><h3>[Subheader]</h3><p class="ph">[Design choices and supports for her students.]</p></div>
-        <div class="stack" style="gap:6px;border-top:1px solid var(--line);padding-top:12px"><h3>[Subheader]</h3><a href="#lesson">[Lesson Title] →</a></div>
-        <div class="note">[note: how students responded]</div>
+        <div class="stack" style="gap:6px;border-top:1px solid var(--line);padding-top:12px"><h3>What students do</h3><p class="ph">[Text]</p></div>
+        <div class="stack" style="gap:6px;border-top:1px solid var(--line);padding-top:12px"><h3>How I designed it</h3><p class="ph">[Text]</p></div>
+        <div class="stack" style="gap:6px;border-top:1px solid var(--line);padding-top:12px"><h3>Used in</h3><a href="#lesson">[Lesson Title] →</a></div>
+        <div class="note">[Note]</div>
       </div>
     </div>
   </div>
@@ -221,13 +221,13 @@ lesson:()=>`<section class="sec stack" style="gap:18px">
   <div class="sheet">
     <div class="stack" style="gap:10px">
       <div class="label" style="color:var(--k1)">[Class Name] · Week [#]</div>
-      <h1>[Header]</h1>
+      <h1>[Lesson Title]</h1>
       <div class="facts"><span>[Date]</span><span>[Grade]</span><span>[Length]</span><span>${TOP[0]}</span></div>
-      <div class="note">[optional note: why she's proud of this lesson]</div>
+      <div class="note">[Note]</div>
     </div>
     ${[["Essential question","[Question students reflect on]"],["Standards","[Standard code: text]"],["Objectives","<ul><li>[Objective 1]</li><li>[Objective 2]</li></ul>"],["Differentiation","<ul><li>[Support 1]</li><li>[Support 2]</li></ul>"],["Assessment","[How learning is checked]"],["Sequence","<ul><li>[Warm-up]</li><li>[Instruction]</li><li>[Practice]</li><li>[Closure]</li></ul>"]]
-      .map(([h,b])=>`<div class="part"><h3>[Subheader]</h3><div class="ph">${b}</div></div>`).join("")}
-    <div class="part"><h3>[Subheader]</h3><div class="thumbs">${[1,2,3].map(i=>`<a href="#material" style="text-decoration:none"><div>[Material ${i}]</div></a>`).join("")}<div style="aspect-ratio:16/9">[Slides]</div></div></div>
+      .map(([h,b])=>`<div class="part"><h3>${h}</h3><div class="ph">${b}</div></div>`).join("")}
+    <div class="part"><h3>Materials</h3><div class="thumbs">${[1,2,3].map(i=>`<a href="#material" style="text-decoration:none"><div>[Material ${i}]</div></a>`).join("")}<div style="aspect-ratio:16/9">[Slides]</div></div></div>
     <div class="btns"><a class="btn" href="#lesson">Full plan (PDF)</a></div>
   </div>
 </section>`
@@ -243,12 +243,12 @@ function weekView(w){
   </div>
   <div class="stack" style="gap:6px">
     <div class="label">[MM/DD – MM/DD]</div>
-    <h1>[Header]</h1>
-    <p class="ph">[One-sentence summary of the week.]</p>
+    <h1>Week ${w}</h1>
+    <p class="ph">[Text]</p>
   </div>
   <div class="days">
     ${K.map(k=>`<div class="col" style="--c:${k.c}">
-      <h3>[Subheader]</h3>
+      <h3>${k.n} Name</h3>
       <div class="label">Lesson plans</div>
       <ul>${[1,2,3].map(i=>`<li><a href="#lesson"><span class="t">[Lesson ${i} Title]</span><span class="s">${TOP[i%5]} · [Day]</span></a></li>`).join("")}</ul>
       <div class="label">Materials</div>
@@ -257,8 +257,8 @@ function weekView(w){
   </div>
   <div class="journal stack">
     <div class="label">From her journal · Week ${w}</div>
-    <p class="ph">[De-identified excerpt from her student teaching journal for this week: what went well, what she adjusted, what she learned.]</p>
-    <div class="note">[takeaway note]</div>
+    <p class="ph">[Text]</p>
+    <div class="note">[Note]</div>
   </div>
 </section>`;
 }
