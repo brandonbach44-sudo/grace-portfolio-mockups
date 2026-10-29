@@ -3,10 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Portfolio Option B · Index</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
 /* Layout: strict 12-col Swiss grid; content as indexed, filterable rows; no boxes. */
 :root{
@@ -104,6 +102,21 @@ footer{margin-top:72px;border-top:2px solid var(--line);padding-top:16px;display
   .idx a{grid-template-columns:44px 1fr auto}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style id="plain">
+/* Plain review mode: same type and color in all four options so only the organization differs. */
+:root{--plain-font:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+body{font-family:var(--plain-font)!important;font-weight:400!important}
+h1,h2,h3,.brand,.name,.lbl,.tt{font-family:var(--plain-font)!important;letter-spacing:-.01em!important}
+.ph,.lede{font-style:normal!important}
+h1{font-size:clamp(1.8rem,4vw,2.4rem)!important;font-weight:700!important;line-height:1.15!important}
+h2{font-size:1.3rem!important;font-weight:700!important}
+h3{font-weight:600!important}
+:root{--fg:#1a1a1a;--muted:#666;--line:#1a1a1a;--faint:#ddd;--accent:#1a1a1a;--sans:var(--plain-font);--mono:var(--plain-font)}
+.giant{font-size:clamp(2.2rem,6vw,3rem)!important}
+.idx a .t{font-size:clamp(1.3rem,3vw,1.7rem)!important;font-weight:700!important}
+.tag.k1,.tag.k2,.tag.k3{color:#555}
+.sq{background:#f2f2f2}
 </style>
 
 <div class="wrap">
